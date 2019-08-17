@@ -10,7 +10,7 @@ shodan_client = shodan.Shodan(os.environ.get('SHODAN_TOKEN', ''))
 
 @respond_to(r'^host\s(.*)', re.IGNORECASE)
 def host(message, addr):
-    message.reply('SQUAK! Searching for host '+addr+'...')
+    message.reply('SQUAK! Searching for '+addr+'...')
     try:
         host = shodan_client.host(addr)
     except shodan.exception.APIError as e:
