@@ -3,7 +3,9 @@ services:
   slackbot:
     image: okwrtdsh/slackbot:latest
     volumes:
-      - ./example:/app/plugins
+      - ./app/plugins/:/app/plugins/
+      - ./requirements.txt:/requirements.txt
     environment:
-      - DEFAULT_REPLY=Sorry but I didn't understand you
-      - API_TOKEN="YOUR_API_TOKEN"
+      - DEFAULT_REPLY=Squak?
+      - API_TOKEN=SLACK_API_TOKEN
+      - SHODAN_TOKEN=SHODAN_API_TOKEN
