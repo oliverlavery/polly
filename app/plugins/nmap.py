@@ -34,7 +34,7 @@ def string_results(nm):
 
 @respond_to(r'^scan\s(.*)', re.IGNORECASE)
 def nmap_scan(message, addr):
-    if addr.startswith('192') or addr.startswith('127'):
+    if addr.startswith('192') or addr.startswith('127') or '/0' in addr or '/1' in addr:
         message.reply("SCREEE!!!")
         return
 
