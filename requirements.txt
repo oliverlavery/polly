@@ -1,2 +1,3 @@
 slackbot
 shodan
+python-nmap

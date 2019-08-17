@@ -1,11 +1,14 @@
 version: '3'
 services:
   slackbot:
-    image: okwrtdsh/slackbot:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     volumes:
       - ./app/plugins/:/app/plugins/
       - ./requirements.txt:/requirements.txt
     environment:
       - DEFAULT_REPLY=Squak?
-      - API_TOKEN=SLACK_API_TOKEN
-      - SHODAN_TOKEN=SHODAN_API_TOKEN
+      - API_TOKEN=YOUR_API_TOKEN
+      - SHODAN_TOKEN=YOUR_SODAN_TOKEN
+

@@ -8,45 +8,6 @@ import socket
 
 shodan_client = shodan.Shodan(os.environ.get('SHODAN_TOKEN', ''))
 
-def help_msg():
-    return """
-            .------.
-           /  ~ ~   \,------.      ______
-         ,'  ~ ~ ~  /  (@)   \   ,'      \\
-       ,'          /`.    ~ ~ \ /         \\
-     ,'           | ,'\  ~ ~ ~ X     \  \  \\
-   ,'  ,'          V--<       (       \  \  \\
- ,'  ,'               (vv      \/\  \  \  |  |
-(__,'  ,'   /         (vv   ""    \  \  | |  |
-  (__,'    /   /       vv   "'"    \ |  / / /
-      \__,'   /  |     vv          / / / / /
-          \__/   / |  | \         / /,',','
-             \__/\_^  |  \       /,'',','\\
-                    `-^.__>.____/  ' ,'   \\
-                            // //---'      |
-          ===============(((((((=================
-                                     | \ \  \\
-                                     / |  |  \\
-                                    / /  / \  \\
-                                    `.     |   \\
-                                      `--------'
-======================================================
-                ___       _  _
-                | . \ ___ | || | _ _
-                |  _// . \| || || | |
-                |_|  \___/|_||_|`_. |
-                                <___'
-
-Polly scans the horizon for vessels to plunder:
-    help    -- This message
-    search  -- Search Shodan
-    host    -- Examine a host
-"""
-
-@respond_to(r'^help', re.IGNORECASE)
-def help_response(message):
-    message.reply("```\n"+help_msg()+"\n```")
-
 @respond_to(r'^host\s(.*)', re.IGNORECASE)
 def host(message, addr):
     message.reply('SQUAK! Searching for host '+addr+'...')
