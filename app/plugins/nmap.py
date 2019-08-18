@@ -34,8 +34,8 @@ def string_results(nm):
 
 @respond_to(r'^scan\s(.*)', re.IGNORECASE)
 def nmap_scan(message, addr):
-    if (addr.startswith('192') or
-        addr.startswith('127') or
+    if ('192.168.' in addr or
+        '127.0.0.' in addr or
         '/0' in addr or
         '/1' in addr or
         '/2' in addr):

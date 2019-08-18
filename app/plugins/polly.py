@@ -60,3 +60,19 @@ def cracker(message):
     message.reply('SQUAK! Polly want a cracker!')
     # react with thumb up emoji
     message.react('+1')
+
+@listen_to(r'\bsing\b|\bsong\b', re.IGNORECASE)
+@respond_to(r'\bsing\b|\bsong\b', re.IGNORECASE)
+def song(message):
+    message.reply("""
+        :musical_note: _And it's all for me grog, me jolly, jolly grog_
+        _All for me beer and tobacc-y_
+        _Well I spent all me tin on the lassies 'n gin_
+        _Across the western ocean I must journey-y!_ :musical_note:
+        SQUAK!
+    """)
+
+@listen_to(r'\bjoke|\blaugh', re.IGNORECASE)
+@respond_to(r'\bjoke|\blaugh', re.IGNORECASE)
+def joke(message):
+    message.reply("I'm pining for the fjords. SQUAK!")
